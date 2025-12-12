@@ -10,12 +10,12 @@ warnings.filterwarnings('ignore', category=UserWarning, module='openpyxl')
 st.set_page_config(page_title="Audit Keuangan Shopee - Delta", layout="wide")
 st.title("💸 Aplikasi Audit Keuangan Shopee")
 st.subheader("Cocokkan Data Pesanan dengan Riwayat Saldo/Transaksi Penghasilan")
-st.markdown("""
-**Logika Baru:**
-1.  **Data Acuan:** File Pesanan (Real-time).
-2.  **Data Pembanding:** File Riwayat Saldo/Transaksi (Total uang masuk/keluar per pesanan).
-3.  **Fitur:** Menggabungkan produk double dalam satu pesanan & mencocokkan waktu transaksi.
-""")
+# st.markdown("""
+# **Logika Baru:**
+# 1.  **Data Acuan:** File Pesanan (Real-time).
+# 2.  **Data Pembanding:** File Riwayat Saldo/Transaksi (Total uang masuk/keluar per pesanan).
+# 3.  **Fitur:** Menggabungkan produk double dalam satu pesanan & mencocokkan waktu transaksi.
+# """)
 
 # --- Fungsi Pembersih Angka ---
 def clean_currency_indo(x):
@@ -104,13 +104,13 @@ st.divider()
 col1, col2 = st.columns(2)
 
 with col1:
-    st.subheader("1. File Pesanan (Acuan)")
-    st.caption("File Orders (Oktober). Berisi: No. Pesanan, Waktu, Harga Produk.")
+    st.subheader("1. File Data Pesanan")
+    st.caption("Silakan Upload File Data Pesanan/Orders.")
     file_order = st.file_uploader("Upload File Pesanan", type=["xlsx", "csv"], key="ord")
 
 with col2:
-    st.subheader("2. File Penghasilan (Saldo)")
-    st.caption("File Saldo (Okt-Nov). Berisi: Tanggal Transaksi, No. Pesanan, Jumlah.")
+    st.subheader("2. File Laporan Penghasilan")
+    st.caption("Silakan Upload File Data Laporan Penghasilan.")
     file_income = st.file_uploader("Upload File Penghasilan", type=["xlsx", "csv"], key="inc")
 
 # --- PROSES UTAMA ---
@@ -289,5 +289,4 @@ if st.button("🚀 Mulai Analisis", type="primary"):
             st.download_button("📥 Download Excel", buffer.getvalue(), "Hasil_Audit_Shopee_Lengkap.xlsx", "application/vnd.ms-excel")
 
     else:
-
         st.info("Silakan upload kedua file untuk memulai.")

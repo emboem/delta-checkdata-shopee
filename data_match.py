@@ -7,8 +7,9 @@ import warnings
 warnings.filterwarnings('ignore', category=UserWarning, module='openpyxl')
 
 # --- Konfigurasi Halaman ---
-st.set_page_config(page_title="Audit Keuangan Shopee (V4)", layout="wide")
-st.title("🛒 Aplikasi Audit Keuangan Shopee (Versi Saldo)")
+st.set_page_config(page_title="Audit Keuangan Shopee - Delta", layout="wide")
+st.title("💸 Aplikasi Audit Keuangan Shopee")
+st.subheader("Cocokkan Data Pesanan dengan Riwayat Saldo/Transaksi Penghasilan")
 st.markdown("""
 **Logika Baru:**
 1.  **Data Acuan:** File Pesanan (Real-time).
@@ -288,4 +289,5 @@ if st.button("🚀 Mulai Analisis", type="primary"):
             st.download_button("📥 Download Excel", buffer.getvalue(), "Hasil_Audit_Shopee_Lengkap.xlsx", "application/vnd.ms-excel")
 
     else:
+
         st.info("Silakan upload kedua file untuk memulai.")
